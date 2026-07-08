@@ -332,6 +332,34 @@ h3 {
   text-align: center;
 }
 
+.figure-card {
+  overflow: hidden;
+  margin: 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.figure-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  background: #f7f9fc;
+}
+
+.figure-card figcaption {
+  padding: 14px 16px 16px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.project-note {
+  padding: 16px 18px;
+  background: rgba(100, 216, 255, 0.08);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+}
+
 .link-list {
   display: flex;
   flex-wrap: wrap;

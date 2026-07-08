@@ -10,47 +10,63 @@
   <main class="project-page container">
     <header class="project-hero">
       <p class="eyebrow">Project</p>
-      <h1>6U CubeSat Thermal Analysis</h1>
-      <p class="project-summary">A spacecraft thermal analysis project focused on orbital heat flux, surface zoning, and simplified thermal network modeling.</p>
+      <h1>Passive Thermal Design of a 6U Small Satellite</h1>
+      <p class="project-summary">A reproducible Python thermal-analysis workflow for passive thermal design, radiator sizing, and bounding-case verification of a 6U small satellite in a 600 km dawn-dusk Sun-Synchronous Orbit.</p>
     </header>
 
     <section class="detail-section">
       <h2>Project Summary</h2>
-      <p>Placeholder project summary describing the satellite configuration, thermal modeling objective, and analysis outputs. Replace this paragraph with your final project details.</p>
+      <p>This project studies a passive thermal redesign for a 6U small satellite operating in a circular 600 km dawn-dusk SSO. The analysis combines orbital heat-load estimation, thermal surface zoning, a 6-node lumped-parameter thermal network, scenario simulation, and radiator sizing trade studies. The workflow is implemented as a transparent Python package with scenario files, material/property tables, generated figures, and verification tests.</p>
+      <p class="project-note">Engineering status: preliminary design verification concept, not flight-qualified. The model requires future correlation with detailed geometric thermal models and TVAC / thermal-balance test data.</p>
     </section>
 
     <section class="detail-section">
       <h2>Motivation / Background</h2>
-      <p>Placeholder background text explaining the importance of thermal control for CubeSat reliability, payload operation, and orbital mission planning.</p>
+      <p>Small satellites in high-beta dawn-dusk orbits can experience long periods of continuous sunlight, creating a difficult hot-case design problem. The goal was to evaluate whether a passive surface-zoning strategy and anti-Sun radiator placement could keep avionics, battery, payload, structure, radiator, and external shell temperatures within operational limits without complex active thermal hardware.</p>
     </section>
 
     <section class="detail-section">
       <h2>Key Results</h2>
       <ul>
-        <li>Placeholder result describing predicted temperature ranges or heat flux trends.</li>
-        <li>Placeholder result describing surface zoning or model simplification quality.</li>
-        <li>Placeholder result describing design implications for thermal control.</li>
+        <li>Bounding hot case at 74 deg beta converged after 8 simulated orbits and achieved a robust pass across all tracked thermal nodes.</li>
+        <li>Hot-case avionics temperature remained between 38.1 and 39.2 deg C, leaving about 20.8 deg C upper margin to the assumed limit.</li>
+        <li>Battery stayed between 35.0 and 35.4 deg C in the hot case, while the heater duty cycle and heater energy were both zero.</li>
+        <li>Radiator area trade study quantified the balance between lower hot-case avionics peak temperature and increased cold-case heater demand.</li>
       </ul>
     </section>
 
     <section class="detail-section">
       <h2>Selected Figures</h2>
       <div class="figure-grid">
-        <div class="figure-placeholder">Figure placeholder 1</div>
-        <div class="figure-placeholder">Figure placeholder 2</div>
+        <figure class="figure-card">
+          <img src="../images/satellite/sso-orbit.png" alt="Dawn-dusk SSO orbit geometry">
+          <figcaption>Dawn-dusk SSO orbit geometry used to define Sun-facing and anti-Sun spacecraft faces.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/satellite/thermal-network.png" alt="6-node thermal network">
+          <figcaption>6-node lumped-parameter thermal network showing conductive couplings and radiative interfaces.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/satellite/bounding-hot-temperature-history.png" alt="Bounding hot case temperature history">
+          <figcaption>Nodal temperature histories under the continuous-sunlight bounding hot case.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/satellite/radiator-area-system-trade.png" alt="Radiator area system trade study">
+          <figcaption>Radiator area trade-off between hot-case avionics peak temperature and cold-case heater demand.</figcaption>
+        </figure>
       </div>
     </section>
 
     <section class="detail-section">
       <h2>My Contribution</h2>
-      <p>Placeholder contribution text describing your role in orbital heat flux calculation, thermal network modeling, assumptions, or result interpretation.</p>
+      <p>I built the end-to-end Python analysis workflow, including scenario parsing, material and component data tables, environmental heat-load calculations, the lumped thermal network, solver execution scripts, trade-study automation, visualization, and verification tests. I also documented assumptions and generated the project report assets for transparent review and future refinement.</p>
     </section>
 
     <section class="detail-section">
       <h2>Code / Report</h2>
       <div class="link-list">
-        <a class="button" href="#">Code Placeholder</a>
-        <a class="button" href="#">Report Placeholder</a>
+        <a class="button" href="https://github.com/runze-fox/Passive-Thermal-Design-of-a-6U-Small-Satellite">Code Repository</a>
+        <a class="button" href="https://github.com/runze-fox/Passive-Thermal-Design-of-a-6U-Small-Satellite/blob/main/report/report_en.pdf">Report PDF</a>
       </div>
     </section>
 
