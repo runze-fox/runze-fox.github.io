@@ -16,13 +16,9 @@
 
     <section class="detail-section">
       <h2>Project Summary</h2>
-      <p>This project studies a passive thermal redesign for a 6U small satellite operating in a circular 600 km dawn-dusk SSO. The analysis combines orbital heat-load estimation, thermal surface zoning, a 6-node lumped-parameter thermal network, scenario simulation, and radiator sizing trade studies. The workflow is implemented as a transparent Python package with scenario files, material/property tables, generated figures, and verification tests.</p>
+      <p>This project studies a passive thermal redesign for a 6U small satellite operating in a circular 600 km dawn-dusk SSO, where high-beta continuous-sunlight conditions create a difficult hot-case design problem. The analysis evaluates whether passive surface zoning and anti-Sun radiator placement can keep avionics, battery, payload, structure, radiator, and external shell temperatures within operational limits without complex active thermal hardware.</p>
+      <p>The workflow combines orbital heat-load estimation, thermal surface zoning, a 6-node lumped-parameter thermal network, scenario simulation, and radiator sizing trade studies. It is implemented as a transparent Python package with scenario files, material/property tables, generated figures, and verification tests.</p>
       <p class="project-note">Engineering status: preliminary design verification concept, not flight-qualified. The model requires future correlation with detailed geometric thermal models and TVAC / thermal-balance test data.</p>
-    </section>
-
-    <section class="detail-section">
-      <h2>Motivation / Background</h2>
-      <p>Small satellites in high-beta dawn-dusk orbits can experience long periods of continuous sunlight, creating a difficult hot-case design problem. The goal was to evaluate whether a passive surface-zoning strategy and anti-Sun radiator placement could keep avionics, battery, payload, structure, radiator, and external shell temperatures within operational limits without complex active thermal hardware.</p>
     </section>
 
     <section class="detail-section">
@@ -39,7 +35,11 @@
       <h2>Selected Figures</h2>
       <div class="figure-grid">
         <figure class="figure-card">
-          <img src="../images/satellite/sso-orbit.png" alt="Dawn-dusk SSO orbit geometry">
+          <img src="../images/satellite/6u%20thermal%20zoning%20figure.jpg" alt="6U CubeSat passive thermal zoning layout">
+          <figcaption>Passive thermal zoning layout for the 6U small satellite external surfaces.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/satellite/sso-orbit.jpg" alt="Dawn-dusk SSO orbit geometry">
           <figcaption>Dawn-dusk SSO orbit geometry used to define Sun-facing and anti-Sun spacecraft faces.</figcaption>
         </figure>
         <figure class="figure-card">
@@ -55,11 +55,6 @@
           <figcaption>Radiator area trade-off between hot-case avionics peak temperature and cold-case heater demand.</figcaption>
         </figure>
       </div>
-    </section>
-
-    <section class="detail-section">
-      <h2>My Contribution</h2>
-      <p>I built the end-to-end Python analysis workflow, including scenario parsing, material and component data tables, environmental heat-load calculations, the lumped thermal network, solver execution scripts, trade-study automation, visualization, and verification tests. I also documented assumptions and generated the project report assets for transparent review and future refinement.</p>
     </section>
 
     <section class="detail-section">
