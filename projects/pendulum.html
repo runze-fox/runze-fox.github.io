@@ -14,8 +14,8 @@
       <p class="eyebrow">Project</p>
       <h1>Triple Pendulum Physics Simulation</h1>
       <p class="project-summary">A high-fidelity physics simulation of a triple pendulum system using Lagrangian
-        analytical mechanics to derive the equations of motion, followed by numerical integration and video rendering to
-        visualize chaotic multi-body dynamics.</p>
+        analytical mechanics to derive the equations of motion, followed by numerical integration of the coupled
+        nonlinear state-space system.</p>
     </header>
 
     <section class="detail-section">
@@ -23,9 +23,9 @@
       <p>This project models the coupled nonlinear motion of a triple pendulum from first principles. The equations of
         motion are derived through symbolic Lagrangian mechanics, then converted into a fast numerical function for
         repeated simulation. The Python version extends the original MATLAB implementation with SymPy-based symbolic
-        derivation, SciPy time integration, headless execution, and high-resolution image/video export.</p>
-      <p>The visualization focuses on making the chaotic trajectory legible: each bob leaves a fluorescent trail over a
-        dark coordinate grid, giving a clear illustration of how small perturbations evolve into complex motion.</p>
+        derivation and SciPy time integration, making the dynamics easier to reproduce, inspect, and modify.</p>
+      <p>The system illustrates how a compact analytical model can produce highly sensitive, chaotic motion once the
+        coupled pendulum dynamics are integrated over time.</p>
     </section>
 
     <section class="detail-section">
@@ -34,7 +34,7 @@
         <li>Derived the full triple-pendulum equations of motion using a symbolic Lagrangian formulation.</li>
         <li>Cached the symbolic angular acceleration expressions into a NumPy-vectorized function for fast reruns.</li>
         <li>Integrated the nonlinear state-space system with SciPy's RK45 solver using strict tolerances.</li>
-        <li>Exported a smooth 60 FPS illustration video and a high-resolution static trajectory image.</li>
+        <li>Implemented both MATLAB and Python versions to compare the analytical model and simulation workflow.</li>
       </ul>
     </section>
 
