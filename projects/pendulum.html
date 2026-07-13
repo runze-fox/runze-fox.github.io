@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triple Pendulum Physics Simulation | Runze Shi</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <main class="project-page container">
+    <header class="project-hero">
+      <p class="eyebrow">Project</p>
+      <h1>Triple Pendulum Physics Simulation</h1>
+      <p class="project-summary">A high-fidelity physics simulation of a triple pendulum system using Lagrangian
+        analytical mechanics to derive the equations of motion, followed by numerical integration and video rendering to
+        visualize chaotic multi-body dynamics.</p>
+    </header>
+
+    <section class="detail-section">
+      <h2>Project Summary</h2>
+      <p>This project models the coupled nonlinear motion of a triple pendulum from first principles. The equations of
+        motion are derived through symbolic Lagrangian mechanics, then converted into a fast numerical function for
+        repeated simulation. The Python version extends the original MATLAB implementation with SymPy-based symbolic
+        derivation, SciPy time integration, headless execution, and high-resolution image/video export.</p>
+      <p>The visualization focuses on making the chaotic trajectory legible: each bob leaves a fluorescent trail over a
+        dark coordinate grid, giving a clear illustration of how small perturbations evolve into complex motion.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Key Results</h2>
+      <ul>
+        <li>Derived the full triple-pendulum equations of motion using a symbolic Lagrangian formulation.</li>
+        <li>Cached the symbolic angular acceleration expressions into a NumPy-vectorized function for fast reruns.</li>
+        <li>Integrated the nonlinear state-space system with SciPy's RK45 solver using strict tolerances.</li>
+        <li>Exported a smooth 60 FPS illustration video and a high-resolution static trajectory image.</li>
+      </ul>
+    </section>
+
+    <section class="detail-section">
+      <h2>Illustration Video</h2>
+      <div class="figure-grid">
+        <figure class="figure-card">
+          <video controls muted playsinline preload="metadata" poster="../images/pendulum/triple_pendulum_hd.png">
+            <source src="../images/pendulum/triple_pendulum.webm" type="video/webm">
+            <source src="../images/pendulum/triple_pendulum.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption>Triple pendulum simulation rendered as a 60 FPS trajectory illustration.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <h2>Selected Figure</h2>
+      <div class="figure-grid">
+        <figure class="figure-card">
+          <img src="../images/pendulum/triple_pendulum_hd.png" alt="Triple pendulum high-resolution trajectory">
+          <figcaption>High-resolution trajectory image showing the chaotic motion paths of the three pendulum bobs.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <h2>Code / Report</h2>
+      <div class="link-list">
+        <a class="button" href="https://github.com/runze-fox/Three-Pendulum-System">Code Repository</a>
+        <a class="button" href="https://github.com/runze-fox/Three-Pendulum-System/tree/main/pythonVersion">Python Version</a>
+      </div>
+    </section>
+
+    <footer class="footer-actions">
+      <a class="back-link" href="../index.html">Back to Portfolio</a>
+    </footer>
+  </main>
+</body>
+
+</html>

@@ -193,8 +193,8 @@ h3 {
   transition: all 0.1s ease;
 }
 
-.button + .button,
-.link-list .button + .button {
+.button+.button,
+.link-list .button+.button {
   margin-left: -1px;
 }
 
@@ -368,7 +368,7 @@ h3 {
   line-height: 1.04;
 }
 
-.detail-section > :not(h2) {
+.detail-section> :not(h2) {
   max-width: 980px;
 }
 
@@ -389,7 +389,7 @@ h3 {
   padding-left: 18px;
 }
 
-.detail-section li + li {
+.detail-section li+li {
   margin-top: 10px;
 }
 
@@ -426,6 +426,14 @@ h3 {
   background: #F5F2EA;
   border-bottom: 1px solid var(--braun-border);
   filter: grayscale(10%) contrast(105%);
+}
+
+.figure-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0B0B0E;
+  border-bottom: 1px solid var(--braun-border);
 }
 
 .figure-card figcaption {
@@ -518,8 +526,8 @@ h3 {
     width: 100%;
   }
 
-  .button + .button,
-  .link-list .button + .button {
+  .button+.button,
+  .link-list .button+.button {
     margin-left: 0;
     margin-top: -1px;
   }
