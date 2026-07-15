@@ -43,33 +43,103 @@
     </section>
 
     <section class="detail-section">
-      <h2>Selected Figures</h2>
-      <div class="figure-grid">
+      <h2>Unit-cell Simulation</h2>
+      <p>The local T-joint unit cell provides the high-fidelity reference response. A solid thermo-elasto-plastic model
+        captures the welding heat input, temperature-dependent material response, and local deformation field near the
+        welded joint.</p>
+      <div class="figure-grid paper-figure-grid">
         <figure class="figure-card">
           <img src="../images/welding/unit-cell-geometry.png" alt="Unit-cell T-joint geometry">
-          <figcaption>Reference unit-cell T-joint geometry used for local welding simulation and validation.</figcaption>
+          <figcaption>Reference unit-cell T-joint geometry.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/welding/goldak-heat-source.png" alt="Goldak heat source configuration">
+          <figcaption>Goldak double-ellipsoidal heat source configuration.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/welding/material-properties.png" alt="Temperature-dependent material properties">
+          <figcaption>Temperature-dependent material properties used in the welding simulation.</figcaption>
         </figure>
         <figure class="figure-card">
           <img src="../images/welding/unit-cell-solid-contour.png" alt="Unit-cell solid finite-element contour">
-          <figcaption>Unit-cell solid finite-element z-displacement contour from the local welding simulation.
-          </figcaption>
+          <figcaption>Unit-cell solid finite-element z-displacement contour.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <h2>Inherent Strain Transfer</h2>
+      <p>The predicted local plastic strain field is converted into equivalent shell-section inherent strain loading.
+        This bridges the high-resolution solid unit-cell model and the lower-cost global shell model used for large
+        stiffened panels.</p>
+      <div class="figure-grid paper-figure-grid">
+        <figure class="figure-card wide">
+          <img src="../images/welding/graph-abstract.png" alt="DL-InSM workflow graphical abstract">
+          <figcaption>Overall workflow: local welding simulation, ML strain-field prediction, inherent strain
+            conversion, and global panel deformation analysis.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <h2>ML Model</h2>
+      <p>Several surrogate architectures are compared for multi-component plastic-strain field prediction. The model
+        design focuses on preserving localized high-gradient strain features around the weld and heat-affected zone.</p>
+      <div class="figure-grid paper-figure-grid">
+        <figure class="figure-card">
+          <img src="../images/welding/cnn-unet-skip.png" alt="Skip-connected convolutional encoder decoder">
+          <figcaption>Skip-connected U-Net-style convolutional encoder-decoder.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/welding/triple-head-decoder.png" alt="Triple-head decoder architecture">
+          <figcaption>Unified single-head and decoupled triple-head decoder comparison.</figcaption>
+        </figure>
+        <figure class="figure-card wide">
+          <img src="../images/welding/bottleneck-comparison.png" alt="Bottleneck architecture comparison">
+          <figcaption>Latent-space bottleneck alternatives evaluated for strain-field prediction.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <h2>Large-Structure Prediction</h2>
+      <p>The converted inherent strain loading is applied to 2-by-2 and 3-by-3 stiffened-panel shell models. The
+        comparisons verify whether the local unit-cell response remains useful when propagated to larger welded
+        assemblies.</p>
+      <div class="figure-grid paper-figure-grid">
+        <figure class="figure-card">
+          <img src="../images/welding/large-panel-2by2-solid-contour.png" alt="2-by-2 TEPA reference contour">
+          <figcaption>2-by-2 panel TEPA reference z-displacement contour.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/welding/large-panel-2by2-shell-contour.png" alt="2-by-2 ML-InSM shell contour">
+          <figcaption>2-by-2 panel ML-InSM shell z-displacement contour.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/welding/large-panel-3by3-solid-contour.png" alt="3-by-3 TEPA reference contour">
+          <figcaption>3-by-3 panel TEPA reference z-displacement contour.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/welding/large-panel-3by3-shell-contour.png" alt="3-by-3 ML-InSM shell contour">
+          <figcaption>3-by-3 panel ML-InSM shell z-displacement contour.</figcaption>
         </figure>
         <figure class="figure-card">
           <img src="../images/welding/large-panel-2by2-solid-shell-comparison.png"
             alt="2-by-2 large panel solid and shell comparison">
-          <figcaption>2-by-2 stiffened-panel path-wise comparison between TEPA reference and ML-InSM shell analysis.
-          </figcaption>
+          <figcaption>2-by-2 panel path-wise deflection comparison.</figcaption>
         </figure>
         <figure class="figure-card">
           <img src="../images/welding/large-panel-3by3-solid-shell-comparison.png"
             alt="3-by-3 large panel solid and shell comparison">
-          <figcaption>3-by-3 stiffened-panel path-wise comparison showing transfer from local unit-cell response to a
-            larger welded structure.</figcaption>
+          <figcaption>3-by-3 panel path-wise deflection comparison.</figcaption>
         </figure>
         <figure class="figure-card">
-          <img src="../images/welding/continuity-test-web12-t15.png" alt="Continuity test result">
-          <figcaption>Representative physical continuity test result for a 12 mm web and 15 mm plate thickness.
-          </figcaption>
+          <img src="../images/welding/continuity-error-trend-web12.png" alt="Continuity test RMSE trend">
+          <figcaption>Continuity-test RMSE trend for the 12 mm web case.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/welding/continuity-test-web12-t15.png" alt="Continuity test field comparison">
+          <figcaption>Representative continuity field comparison for a 12 mm web and 15 mm plate.</figcaption>
         </figure>
       </div>
     </section>
