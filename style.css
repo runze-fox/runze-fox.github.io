@@ -300,9 +300,9 @@ h3 {
 .project-card .details-button {
   min-height: 38px;
   padding: 0 16px;
-  border: 1px solid var(--braun-accent-yellow);
-  background: var(--braun-accent-yellow);
-  color: #000;
+  border: 1px solid var(--braun-text-main);
+  background: var(--braun-text-main);
+  color: var(--braun-bg);
   font-size: 0.8rem;
   letter-spacing: 0.06em;
 }
@@ -312,9 +312,9 @@ h3 {
 }
 
 .project-card .details-button:hover {
-  background: var(--braun-text-main);
-  border-color: var(--braun-text-main);
-  color: var(--braun-bg);
+  background: var(--braun-accent-yellow);
+  border-color: var(--braun-accent-yellow);
+  color: #000;
 }
 
 .contact-section {
