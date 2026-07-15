@@ -1,57 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welding Deformation Prediction | Runze Shi</title>
+  <title>DL-InSM Welding Simulation | Runze Shi</title>
   <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
   <main class="project-page container">
     <header class="project-hero">
       <p class="eyebrow">Project</p>
-      <h1>Welding Deformation Prediction</h1>
-      <p class="project-summary">A simulation-driven machine learning workflow for predicting welding-induced deformation in stiffened structures.</p>
+      <h1>DL-InSM Welding Simulation</h1>
+      <p class="project-summary">A deep-learning inherent-strain workflow for predicting welding-induced deformation in
+        large stiffened panels by transferring local unit-cell welding simulations into efficient global shell models.
+      </p>
     </header>
 
     <section class="detail-section">
       <h2>Project Summary</h2>
-      <p>Placeholder project summary describing the simulation data, predictive modeling task, and intended engineering use case. Replace this paragraph with the final project narrative.</p>
-    </section>
-
-    <section class="detail-section">
-      <h2>Motivation / Background</h2>
-      <p>Placeholder background text explaining why welding deformation prediction matters for structural manufacturing, quality control, and design iteration.</p>
+      <p>This research project studies a machine-learning-assisted inherent strain method for welding distortion
+        prediction in stiffened structures. Local thermo-elasto-plastic unit-cell simulations are used to generate
+        high-resolution plastic strain fields, which are then learned by neural surrogate models and converted into
+        equivalent inherent strain inputs for large elastic shell analyses.</p>
+      <p>The objective is to retain the physically meaningful local welding response from solid finite-element models
+        while making panel-level deformation prediction fast enough for large welded structures and design iteration.</p>
     </section>
 
     <section class="detail-section">
       <h2>Key Results</h2>
       <ul>
-        <li>Placeholder result describing prediction accuracy or error reduction.</li>
-        <li>Placeholder result describing simulation efficiency or dataset generation.</li>
-        <li>Placeholder result describing practical engineering insight from the model.</li>
+        <li>Converted ML-predicted unit-cell plastic strain fields into shell-model inherent strain loading for
+          panel-level distortion analysis.</li>
+        <li>Matched TEPA reference deformation paths with peak-normalized RMSE values of 3.19%, 3.90%, and 4.61% for
+          unit-cell, 2-by-2, and 3-by-3 stiffened-panel cases.</li>
+        <li>Continuity tests showed smooth error trends across dense plate-thickness variations, supporting physical
+          consistency of the learned strain-field mapping.</li>
+        <li>Reduced wall-clock analysis time by more than 1002x, more than 10145x, and approximately 3048x for the
+          unit-cell, 2-by-2, and 3-by-3 cases compared with TEPA reference simulations.</li>
       </ul>
     </section>
 
     <section class="detail-section">
       <h2>Selected Figures</h2>
       <div class="figure-grid">
-        <div class="figure-placeholder">Figure placeholder 1</div>
-        <div class="figure-placeholder">Figure placeholder 2</div>
+        <figure class="figure-card">
+          <img src="../images/welding/unit-cell-geometry.png" alt="Unit-cell T-joint geometry">
+          <figcaption>Reference unit-cell T-joint geometry used for local welding simulation and validation.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/welding/unit-cell-solid-contour.png" alt="Unit-cell solid finite-element contour">
+          <figcaption>Unit-cell solid finite-element z-displacement contour from the local welding simulation.
+          </figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/welding/large-panel-2by2-solid-shell-comparison.png"
+            alt="2-by-2 large panel solid and shell comparison">
+          <figcaption>2-by-2 stiffened-panel path-wise comparison between TEPA reference and ML-InSM shell analysis.
+          </figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/welding/large-panel-3by3-solid-shell-comparison.png"
+            alt="3-by-3 large panel solid and shell comparison">
+          <figcaption>3-by-3 stiffened-panel path-wise comparison showing transfer from local unit-cell response to a
+            larger welded structure.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/welding/continuity-test-web12-t15.png" alt="Continuity test result">
+          <figcaption>Representative physical continuity test result for a 12 mm web and 15 mm plate thickness.
+          </figcaption>
+        </figure>
       </div>
-    </section>
-
-    <section class="detail-section">
-      <h2>My Contribution</h2>
-      <p>Placeholder contribution text describing your role in simulation setup, feature engineering, model training, evaluation, or visualization.</p>
     </section>
 
     <section class="detail-section">
       <h2>Code / Report</h2>
       <div class="link-list">
-        <a class="button" href="#">Code Placeholder</a>
-        <a class="button" href="#">Report Placeholder</a>
+        <a class="button" href="https://github.com/runze-fox/DL-InSM-welding-simulation">Code Repository</a>
       </div>
+      <p class="project-note">The repository is currently private and can be made public later without changing this
+        link.</p>
     </section>
 
     <footer class="footer-actions">
@@ -59,4 +88,5 @@
     </footer>
   </main>
 </body>
+
 </html>
