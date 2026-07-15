@@ -257,15 +257,15 @@ h3 {
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  background: var(--braun-border);
-  border: 1px solid var(--braun-border);
+  gap: 28px;
+  background: transparent;
+  border: 0;
 }
 
 .project-card {
   overflow: hidden;
   background: var(--braun-bg);
-  border: 0;
+  border: 1px solid var(--braun-border);
   transition: all 0.1s ease;
 }
 
@@ -275,7 +275,7 @@ h3 {
 
 .project-card img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 210px;
   object-fit: cover;
   background: var(--braun-surface);
   border-bottom: 1px solid var(--braun-border);
@@ -283,13 +283,47 @@ h3 {
 }
 
 .project-card-body {
-  padding: 22px;
+  padding: 34px 36px 36px;
+}
+
+.project-card-body h3 {
+  font-size: 1.05rem;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .project-card-body p {
-  min-height: 68px;
-  margin: 12px 0 22px;
+  min-height: 78px;
+  margin: 16px 0 28px;
   color: var(--braun-text-muted);
+  font-size: 0.92rem;
+  font-weight: 400;
+  line-height: 1.62;
+}
+
+.project-card .details-button {
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--braun-text-main);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+}
+
+.project-card .details-button::after {
+  content: " ->";
+  color: var(--braun-text-main);
+}
+
+.project-card .details-button:hover {
+  background: transparent;
+  color: var(--braun-text-main);
+}
+
+.project-card .details-button:hover::after {
+  color: var(--braun-accent-yellow);
 }
 
 .contact-section {
@@ -535,7 +569,6 @@ h3 {
   }
 
   .button,
-  .details-button,
   .back-link {
     width: 100%;
   }
