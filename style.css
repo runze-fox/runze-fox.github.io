@@ -234,22 +234,13 @@ h3 {
 }
 
 .section-heading {
-  display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
-  gap: 32px;
-  align-items: start;
-  max-width: none;
-  margin-bottom: 34px;
-}
-
-.section-heading .eyebrow {
-  margin: 0;
-  padding-top: 8px;
+  max-width: 860px;
+  margin-bottom: 30px;
 }
 
 .about-text {
   max-width: 860px;
-  margin: 0 0 0 212px;
+  margin: 0;
   color: var(--braun-text-muted);
   font-size: 1rem;
 }
@@ -544,11 +535,6 @@ h3 {
 
   .section {
     padding: 52px 0;
-  }
-
-  .section-heading {
-    grid-template-columns: 1fr;
-    gap: 18px;
   }
 
   .about-text {
