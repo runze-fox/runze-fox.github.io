@@ -1,9 +1,9 @@
 :root {
-  --braun-bg: #E9E4D8;
-  --braun-surface: #DED8CB;
-  --braun-text-main: #1A1A1A;
-  --braun-text-muted: #3F3F3A;
-  --braun-border: #BFB7A8;
+  --braun-bg: #EFEFEA;
+  --braun-surface: #E6E6DF;
+  --braun-text-main: #232323;
+  --braun-text-muted: #767676;
+  --braun-border: #D1D1CB;
   --braun-accent-yellow: #FFCC00;
 
   --bg: var(--braun-bg);
@@ -143,7 +143,7 @@ h1 {
 
 h2 {
   margin: 0;
-  font-size: clamp(1.55rem, 3.2vw, 2.65rem);
+  font-size: clamp(1.35rem, 2.4vw, 2.1rem);
   line-height: 1.05;
 }
 
@@ -238,6 +238,10 @@ h3 {
   margin-bottom: 30px;
 }
 
+.section-heading h2 {
+  white-space: nowrap;
+}
+
 .about-text {
   max-width: 860px;
   margin: 0;
@@ -261,7 +265,7 @@ h3 {
 }
 
 .project-card:hover {
-  background: var(--card-hover);
+  background: var(--braun-surface);
 }
 
 .project-card img {
@@ -535,6 +539,10 @@ h3 {
 
   .section {
     padding: 52px 0;
+  }
+
+  .section-heading h2 {
+    white-space: normal;
   }
 
   .about-text {
