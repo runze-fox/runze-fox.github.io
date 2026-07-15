@@ -298,27 +298,23 @@ h3 {
 }
 
 .project-card .details-button {
-  min-height: auto;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: var(--braun-text-main);
+  min-height: 38px;
+  padding: 0 16px;
+  border: 1px solid var(--braun-accent-yellow);
+  background: var(--braun-accent-yellow);
+  color: #000;
   font-size: 0.8rem;
   letter-spacing: 0.06em;
 }
 
 .project-card .details-button::after {
-  content: " ->";
-  color: var(--braun-text-main);
+  content: "";
 }
 
 .project-card .details-button:hover {
-  background: transparent;
-  color: var(--braun-text-main);
-}
-
-.project-card .details-button:hover::after {
-  color: var(--braun-accent-yellow);
+  background: var(--braun-text-main);
+  border-color: var(--braun-text-main);
+  color: var(--braun-bg);
 }
 
 .contact-section {
