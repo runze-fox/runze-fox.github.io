@@ -5,147 +5,143 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hubble: Safe Agentic Alpha Factor Discovery | Runze Shi</title>
-  <link rel="stylesheet" href="../style.css?v=20260718-1">
+  <link rel="stylesheet" href="../style.css?v=20260718-2">
 </head>
 
 <body>
   <main class="project-page container">
     <header class="project-hero">
-      <p class="eyebrow">Project / Quantitative Research</p>
-      <h1>Hubble: Safe Agentic Alpha Factor Discovery</h1>
-      <p class="project-summary">Hubble is an LLM-driven factor mining framework for quantitative finance. It uses a
-        constrained operator language, AST-based execution sandbox, deterministic statistical evaluation, and
-        multi-round feedback to generate interpretable alpha factors with production-oriented safety controls.</p>
+      <p class="eyebrow">Project / arXiv Paper</p>
+      <h1>Hubble: Safe, Diverse, and Reproducible Alpha Factor Discovery</h1>
+      <p class="project-summary">Hubble is an LLM-driven alpha research workflow that generates interpretable symbolic
+        factors, validates them through an AST execution sandbox, and ranks them with deterministic cross-sectional
+        diagnostics, dual-channel RAG, and family-aware selection.</p>
     </header>
 
     <section class="detail-section">
       <h2>Overview</h2>
-      <p>Automated alpha discovery is difficult because symbolic factor spaces are combinatorial, financial data is
-        noisy, and unconstrained LLM-generated code can be unsafe to execute. Hubble addresses this by treating the LLM
-        as a constrained search engine rather than a free-form code generator. Candidate factors are generated as
-        nested expressions in a domain-specific language, validated through a parser and sandbox, evaluated on
-        cross-sectional equity data, and fed back into the next generation round as structured research context.</p>
-      <p>The project was developed as a research system at Celestial Quant Lab and UBC. The paper version evaluates the
-        framework on 30 U.S. equities over 752 trading days, processing 120 unique candidates across three mining
-        rounds with 100% computational stability and a best composite score of 0.827.</p>
+      <p>Automated alpha discovery is difficult because formulaic factor spaces are combinatorial, daily equity signals
+        are noisy, and unconstrained program generation is unsafe. Hubble treats the LLM as a constrained hypothesis
+        engine instead of a free-form code generator. Candidate factors are restricted to operator trees, evaluated by
+        a deterministic pipeline, and fed back into later rounds with both top-factor diagnostics and family-level
+        search information.</p>
+      <p>The current public paper reports a main run on a roughly 500-stock U.S. equity universe. The discovery panel
+        covers 501 valid stocks and 840 trading days from 2022-01-01 to 2025-05-31. Across three mining rounds, Hubble
+        evaluates 104 valid candidates with zero runtime crashes, then fixes the top-five factors for a held-out
+        out-of-sample validation window from 2025-06-01 to 2026-03-13.</p>
     </section>
 
     <section class="detail-section">
-      <h2>Research Pipeline</h2>
-      <p>The system connects LLM-based hypothesis generation with a deterministic quantitative evaluation pipeline. A
-        curated operator registry defines the legal expression space, including mathematical, time-series,
-        cross-sectional, logic, and conditional operators. Generated expressions are parsed into symbolic trees,
-        evaluated against OHLCV panel data, and scored using RankIC, annualized IC information ratio, hit ratio,
-        turnover, coverage, and data drop diagnostics.</p>
-      <p>Instead of optimizing for a single headline metric, Hubble records each candidate as a reproducible artifact.
-        The output directory stores run configuration, prompts, raw LLM responses, checkpoints, candidate records,
-        top-k factors, golden factors, and error logs. This makes the research process auditable rather than dependent
-        on one-off LLM outputs.</p>
-    </section>
-
-    <section class="detail-section">
-      <h2>Safety Architecture</h2>
-      <p>The core engineering contribution is the separation between language-model generation and executable research
-        code. Hubble validates each candidate expression through a three-layer AST sandbox before execution. The
-        sandbox restricts syntax to whitelisted AST nodes, enforces maximum tree depth and node count, checks function
-        arity against the operator registry, rejects unknown variables, and blocks unsafe identifiers such as dunder
-        names.</p>
-      <p>This design allows the LLM to explore factor ideas while keeping the runtime deterministic and recoverable.
-        Append-only records and checkpoint files allow interrupted runs to resume without re-calling the model or
-        losing completed evaluations.</p>
+      <h2>System Architecture</h2>
+      <p>The system combines a DSL-constrained generator, a dual-channel retrieval layer, an AST sandbox, a
+        cross-sectional evaluator, a standardized scoring module, and a persistent reporting layer. Positive RAG
+        supplies representative mechanisms worth exploring, while negative RAG discourages crowded templates and
+        trivial re-parameterizations. This turns retrieval into a control signal for exploration rather than a passive
+        source of examples.</p>
+      <p>Each generated formula is archived with RankIC, Pearson IC, bucket returns, long-short spread, turnover,
+        coverage, formula complexity, prompt metadata, and error diagnostics. The goal is not only to produce candidate
+        factors, but to make the research process auditable after the mining run finishes.</p>
 
       <div class="figure-grid paper-figure-grid">
         <figure class="figure-card">
           <img src="../images/hubble/infrastructure_safety_stack.png" alt="Hubble infrastructure and safety stack">
-          <figcaption>Infrastructure and safety stack used for constrained generation, validation, evaluation, and
-            persistent research artifacts.</figcaption>
+          <figcaption>Infrastructure and safety stack for constrained generation, AST validation, deterministic
+            evaluation, and persistent diagnostics.</figcaption>
         </figure>
         <figure class="figure-card">
-          <img src="../images/hubble/system-pipeflow.png" alt="Hubble end-to-end system pipeline">
-          <figcaption>End-to-end pipeline from LLM factor generation to AST validation, statistical evaluation, scoring,
-            and feedback.</figcaption>
+          <img src="../images/hubble/Pipeline.png" alt="Hubble agentic search loop">
+          <figcaption>Agentic search loop with positive and negative RAG references, evaluation feedback, and
+            family-level diagnostics.</figcaption>
         </figure>
       </div>
     </section>
 
     <section class="detail-section">
-      <h2>Agentic Feedback Loop</h2>
-      <p>Each mining round produces a batch of candidate expressions. Valid candidates are scored and ranked; invalid
-        candidates are categorized as parse, security, semantic, duplicate, or evaluation failures. The next prompt
-        receives top-performing factors and structured error summaries, allowing the model to refine its search space
-        while avoiding repeated failure modes.</p>
-
-      <figure class="figure-card standalone-figure">
-        <img src="../images/hubble/mining-loop.png" alt="Hubble iterative mining loop">
-        <figcaption>Multi-round mining loop: generate, canonicalize, validate, evaluate, score, archive, and feed back
-          structured diagnostics into the next round.</figcaption>
-      </figure>
+      <h2>Safety & Evaluation</h2>
+      <p>The execution layer validates every candidate through a three-layer AST sandbox before evaluation. It allows
+        only whitelisted syntax, enforces expression depth and node-count limits, verifies operator names and arities,
+        rejects unknown variables, and blocks arbitrary Python execution. This keeps LLM exploration separate from
+        runtime authority.</p>
+      <p>The quantitative evaluator reports both rank-based and linear evidence: RankIC, Pearson IC, annualized
+        information ratios, HAC significance tests, bucket returns, long-short spread, turnover, coverage, and data
+        drop diagnostics. The scoring layer standardizes heterogeneous metrics and adds penalties for formula
+        similarity, crowded templates, and excessive factor-family concentration.</p>
     </section>
 
     <section class="detail-section">
       <h2>Results & Validation</h2>
-      <p>The paper experiment processed 120 unique LLM-generated candidates and 240 total expression evaluations across
-        three rounds. Of these, 180 expressions passed all validation and evaluation stages. The top factors achieved
-        annualized information ratios above 1.0, while all top-five factors maintained full data coverage. Most
-        importantly, the run recorded zero runtime crashes, which validates the sandbox-first architecture.</p>
+      <p>The final selected factors span range, volatility, and price-trend families rather than collapsing into a
+        single crowded liquidity-volume motif. In the held-out OOS window, both range factors and both volatility
+        factors remain positive; several achieve HAC-significant Pearson IC and long-short evidence. The weakest
+        in-sample trend factor decays materially, which is useful evidence that the scoring layer is not treating all
+        top-k factors as equally robust.</p>
 
       <table class="stats-table">
         <thead>
           <tr>
             <th>Metric</th>
             <th>Value</th>
-            <th>Why It Matters</th>
+            <th>Interpretation</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Unique candidates</td>
-            <td>120</td>
-            <td>Measures LLM-driven symbolic search breadth.</td>
+            <td>Discovery universe</td>
+            <td>501 U.S. equities</td>
+            <td>S&amp;P 500-based daily OHLCV panel.</td>
           </tr>
           <tr>
-            <td>Total evaluations</td>
-            <td>240</td>
-            <td>Includes multi-round feedback variants and repeated evaluation flow.</td>
+            <td>Discovery period</td>
+            <td>2022-01-01 to 2025-05-31</td>
+            <td>840 trading days used for factor discovery.</td>
           </tr>
           <tr>
-            <td>Valid evaluations</td>
-            <td>180</td>
-            <td>75.0% of processed expressions passed validation and scoring.</td>
+            <td>OOS period</td>
+            <td>2025-06-01 to 2026-03-13</td>
+            <td>195 trading days held out before validation.</td>
+          </tr>
+          <tr>
+            <td>Valid candidates</td>
+            <td>104</td>
+            <td>Evaluated across three mining rounds.</td>
           </tr>
           <tr>
             <td>Runtime crashes</td>
             <td>0</td>
-            <td>Confirms deterministic execution safety under automated generation.</td>
+            <td>Confirms sandbox-first operational stability.</td>
           </tr>
           <tr>
-            <td>Best composite score</td>
-            <td>0.827</td>
-            <td>Highest score across RankIC, annualized IR, turnover, and data quality terms.</td>
+            <td>Top families</td>
+            <td>range, volatility, trend</td>
+            <td>Family-aware scoring transferred diversity into selected winners.</td>
           </tr>
         </tbody>
       </table>
 
       <div class="figure-grid paper-figure-grid">
         <figure class="figure-card">
-          <img src="../images/hubble/topk-comparison.png" alt="Top-k factor comparison">
-          <figcaption>Top-k factor comparison across score, RankIC, annualized information ratio, hit ratio, turnover,
-            and coverage.</figcaption>
+          <img src="../images/hubble/fig_round_overview.png" alt="Hubble round overview">
+          <figcaption>Throughput and best-score progression across the three-round main run.</figcaption>
         </figure>
         <figure class="figure-card">
-          <img src="../images/hubble/score-distribution.png" alt="Composite score distribution by mining round">
-          <figcaption>Composite score distribution across mining rounds, showing both exploration variance and later
-            convergence behavior.</figcaption>
+          <img src="../images/hubble/fig_family_diversity.png" alt="Hubble factor family diversity">
+          <figcaption>Family mix of the successful candidate pool compared with the final top-k selection.</figcaption>
         </figure>
         <figure class="figure-card">
-          <img src="../images/hubble/error-breakdown.png" alt="Hubble error breakdown by mining round">
-          <figcaption>Error breakdown by round, separating syntax/security failures from duplicate rejections during
-            iterative search.</figcaption>
+          <img src="../images/hubble/fig_is_top_factor_metrics.png" alt="In-sample top factor metrics">
+          <figcaption>In-sample statistical and trading diagnostics for the top-five factors.</figcaption>
         </figure>
         <figure class="figure-card">
-          <img src="../images/hubble/pipeline-efficiency.png" alt="Hubble pipeline efficiency by mining round">
-          <figcaption>Pipeline efficiency across rounds, tracking generated candidates, successful evaluations, and
-            rejection patterns.</figcaption>
+          <img src="../images/hubble/fig_oos_top_factor_metrics.png" alt="Out-of-sample top factor metrics">
+          <figcaption>Out-of-sample diagnostics after fixing the top-five factors before the holdout window.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/hubble/fig_oos_significance_topk.png" alt="Out-of-sample HAC significance">
+          <figcaption>OOS HAC significance evidence for IC and long-short performance across the selected factors.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="../images/hubble/fig_oos_long_short_cumulative.png" alt="Out-of-sample cumulative long-short spread">
+          <figcaption>Cumulative OOS long-short spread for the leading factors.</figcaption>
         </figure>
       </div>
     </section>
@@ -153,22 +149,21 @@
     <section class="detail-section">
       <h2>Implementation Scope</h2>
       <ul>
-        <li>Designed the factor expression DSL and operator registry for interpretable symbolic alpha formulas.</li>
-        <li>Implemented AST parsing, whitelist validation, arity checks, complexity limits, and safe expression
-          execution.</li>
-        <li>Built the RankIC, annualized ICIR, turnover, coverage, bucket-return, and composite scoring pipeline.</li>
-        <li>Implemented multi-round LLM orchestration with prompt construction, feedback summaries, checkpoints,
-          append-only storage, and structured run outputs.</li>
+        <li>Designed the DSL-constrained alpha generation workflow and safe operator-tree execution boundary.</li>
+        <li>Implemented AST validation, complexity limits, operator arity checks, formula similarity controls, and
+          persistent diagnostics.</li>
+        <li>Built the cross-sectional evaluation layer for RankIC, Pearson IC, HAC tests, bucket returns, long-short
+          spread, turnover, and coverage.</li>
+        <li>Developed the dual-channel RAG and family-aware selection logic used to reduce crowded-template collapse.</li>
       </ul>
     </section>
 
     <section class="detail-section">
-      <h2>Paper / Code</h2>
-      <p>The project is currently maintained as a research repository. The code link points to the project repository;
-        access depends on the repository visibility settings.</p>
+      <h2>Paper</h2>
+      <p>The implementation code is not open source. The public project artifact is the arXiv paper, which documents
+        the framework, experiment design, validation results, and limitations.</p>
       <div class="link-list">
-        <a class="button" href="https://github.com/Celestial-Quant-Lab/agentic_mining" target="_blank">GitHub Repo</a>
-        <a class="button" href="hubble-paper.pdf" target="_blank">Paper PDF</a>
+        <a class="button" href="https://arxiv.org/abs/2604.09601" target="_blank">arXiv Paper</a>
       </div>
     </section>
 
