@@ -436,6 +436,12 @@ h3 {
   grid-column: 1 / -1;
 }
 
+.standalone-figure {
+  max-width: 980px;
+  margin: 0;
+  border: 1px solid var(--braun-border);
+}
+
 .figure-placeholder {
   display: grid;
   min-height: 240px;
@@ -481,6 +487,38 @@ h3 {
   padding: 16px 18px;
   background: var(--braun-surface);
   border-left: 4px solid var(--braun-accent-yellow);
+}
+
+.stats-table {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 0 28px;
+  border-collapse: collapse;
+  background: var(--braun-bg);
+  border: 1px solid var(--braun-border);
+  font-size: 0.92rem;
+}
+
+.stats-table th,
+.stats-table td {
+  padding: 14px 16px;
+  border: 1px solid var(--braun-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.stats-table th {
+  background: var(--braun-surface);
+  color: var(--braun-text-main);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.stats-table td {
+  color: var(--braun-text-main);
+  line-height: 1.45;
 }
 
 .link-list {
@@ -552,6 +590,12 @@ h3 {
 
   .paper-figure-grid .wide {
     grid-column: auto;
+  }
+
+  .stats-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 
   .project-card-body p {
