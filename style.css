@@ -175,6 +175,64 @@ h3 {
   margin-top: 30px;
 }
 
+.resume-menu {
+  position: relative;
+  display: inline-flex;
+  z-index: 5;
+}
+
+.resume-trigger {
+  cursor: default;
+}
+
+.resume-options {
+  position: absolute;
+  top: calc(100% - 1px);
+  left: 0;
+  display: grid;
+  min-width: 250px;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  background: var(--braun-bg);
+  border: 1px solid var(--braun-text-main);
+  transition: all 0.1s ease;
+}
+
+.resume-options a {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--braun-border);
+  color: var(--braun-text-main);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.resume-options a:last-child {
+  border-bottom: 0;
+}
+
+.resume-menu:hover .resume-options,
+.resume-menu:focus-within .resume-options {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.resume-menu:hover .resume-trigger,
+.resume-menu:focus-within .resume-trigger,
+.resume-options a:hover,
+.resume-options a:focus {
+  background: var(--braun-accent-yellow);
+  border-color: var(--braun-accent-yellow);
+  color: #000;
+}
+
 .button,
 .details-button,
 .back-link {
@@ -194,6 +252,7 @@ h3 {
 }
 
 .button+.button,
+.resume-menu+.button,
 .link-list .button+.button {
   margin-left: -1px;
 }
@@ -616,5 +675,25 @@ h3 {
   .button-row,
   .link-list {
     width: 100%;
+  }
+
+  .resume-menu {
+    width: 100%;
+    display: grid;
+  }
+
+  .resume-options {
+    position: static;
+    display: none;
+    min-width: 0;
+    width: 100%;
+    margin-top: -1px;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .resume-menu:hover .resume-options,
+  .resume-menu:focus-within .resume-options {
+    display: grid;
   }
 }
